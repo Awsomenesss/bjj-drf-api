@@ -1,6 +1,8 @@
 from rest_framework import serializers
 from .models import Profile
 
+owner_username = serializers.ReadOnlyField(source="owner.username")
+is_owner = serializers.SerializerMethodField()
 
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
